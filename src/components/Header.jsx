@@ -11,10 +11,12 @@ import rocket from '../assets/rocket.svg'
 export function Header() {
   return (
     <header className={styles.header}>
-      <img src={rocket} alt="Logo do TodoList" />
-      <h1>
-        to<span>do</span>
-      </h1>
+      <div className={styles.headerContainer}>
+        <img src={rocket} alt="Logo do TodoList" />
+        <h1>
+          to<span>do</span>
+        </h1>
+      </div>
     </header>
   )
 }

@@ -12,6 +12,7 @@ export function App() {
   return (
     <>
       <Header />
+      <div className={styles.container}></div>
     </>
   )
 }
