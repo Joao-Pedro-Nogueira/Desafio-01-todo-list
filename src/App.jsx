@@ -8,6 +8,7 @@ import React from 'react'
 //Importação de componentes
 import { Header } from './components/Header.jsx'
 import { TaskForm } from './components/TaskForm'
+import { Tasks } from './components/Tasks'
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
       <Header />
       <div className={styles.container}>
         <TaskForm />
+        <Tasks />
       </div>
     </>
   )
