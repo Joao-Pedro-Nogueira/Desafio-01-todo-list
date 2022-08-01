@@ -9,7 +9,7 @@ import { CheckCircle, Circle, Trash } from 'phosphor-react'
 //Importação de componentes
 import { Task } from './Task'
 
-export function Tasks() {
+export function Tasks({ tasks }) {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
@@ -22,8 +22,10 @@ export function Tasks() {
           <span>2 de 5</span>
         </div>
       </header>
-      <Task />
-      <Task />
+
+      {tasks.map(task => {
+        return <Task content={task} />
+      })}
     </div>
   )
 }

@@ -6,11 +6,11 @@ import styles from './TaskForm.module.css'
 import React from 'react'
 import { PlusCircle } from 'phosphor-react'
 
-export function TaskForm() {
+export function TaskForm({ handleCreateNewTask }) {
   return (
     <form className={styles.taskForm}>
       <textarea placeholder="Adicione uma nova tarefa"></textarea>
-      <button>
+      <button onClick={handleCreateNewTask}>
         <strong>Criar</strong>
         <PlusCircle size={16} />
       </button>
