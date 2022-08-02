@@ -25,7 +25,6 @@ export function App() {
     <>
       <Header />
       <div className={styles.container}>
-        <TaskForm handleCreateNewTask={handleCreateNewTask} />
         <Tasks tasks={tasks} />
       </div>
     </>

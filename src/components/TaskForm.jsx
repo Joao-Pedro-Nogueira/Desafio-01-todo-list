@@ -8,6 +8,11 @@ import { PlusCircle } from 'phosphor-react'
 
 export function TaskForm({ handleCreateNewTask }) {
   const [newTaskText, setNewTaskText] = useState('')
+  const [taskText, setTaskText] = useState('')
+
+  function changeTaskText() {
+    setTaskText
+  }
 
   return (
     <form className={styles.taskForm}>
