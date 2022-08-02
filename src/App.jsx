@@ -18,7 +18,7 @@ export function App() {
   function handleCreateNewTask() {
     event.preventDefault()
 
-    setTasks([...tasks, 'Assistir vidrados temporada 3'])
+    setTasks([...tasks, 'Assistir Formula 1'])
   }
 
   return (

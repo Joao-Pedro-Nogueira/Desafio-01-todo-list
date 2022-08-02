@@ -56,4 +56,5 @@ button {
 
 .deleteButton:hover {
   color: var(--danger);
+  filter:drop-shadow(0 0 10px var(--danger));
 }

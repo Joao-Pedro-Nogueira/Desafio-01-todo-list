@@ -3,10 +3,12 @@ import '../global.css'
 import styles from './TaskForm.module.css'
 
 //Importação de bibliotecas
-import React from 'react'
+import React, { useState } from 'react'
 import { PlusCircle } from 'phosphor-react'
 
 export function TaskForm({ handleCreateNewTask }) {
+  const [newTaskText, setNewTaskText] = useState('')
+
   return (
     <form className={styles.taskForm}>
       <textarea placeholder="Adicione uma nova tarefa"></textarea>
