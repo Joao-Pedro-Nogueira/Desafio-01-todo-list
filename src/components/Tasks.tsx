@@ -20,16 +20,16 @@ export function Tasks() {
 
     const [tasks, setTasks] = useState<taskType[]>
     ([
-      {
-        id: 'teste',
-        content: 'Ler Institutas da Fé Cristão de João Calvino',
-        isComplete: false
-      },
-      {
-        id: 'teste2',
-        content: 'Assistir Fórmula 1',
-        isComplete: true
-      }
+      // {
+      //   id: 'teste',
+      //   content: 'Ler Institutas da Fé Cristão de João Calvino',
+      //   isComplete: false
+      // },
+      // {
+      //   id: 'teste2',
+      //   content: 'Assistir Fórmula 1',
+      //   isComplete: true
+      // }
     ])
 
     function handleCreateTask(event: FormEvent) {
@@ -50,6 +50,15 @@ export function Tasks() {
       event.target.setCustomValidity('')
       setNewTaskContent(event.target.value)
     }
+
+    const tasksQuantity = tasks.length
+
+    function isCompleted({isComplete}: taskType) {
+      isComplete = true
+    }
+
+    const completedTasksQuantity = tasks.filter(isCompleted).length
+
 
   return (
     <div className={styles.container}>
@@ -72,11 +81,11 @@ export function Tasks() {
         <header className={styles.header}>
           <div>
             <p>Tarefas criadas</p>
-            <span>5</span>
+            <span>{tasksQuantity}</span>
           </div>
           <div>
             <p className={styles.purpleText}>Concluídas</p>
-            <span>2 de 5</span>
+            <span>{completedTasksQuantity} de {tasksQuantity}</span>
           </div>
         </header>
 

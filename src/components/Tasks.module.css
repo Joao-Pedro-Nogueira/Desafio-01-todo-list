@@ -56,7 +56,6 @@
 }
 
 .taskForm button:hover {
-  background: var(--blue);
   filter:drop-shadow(0 0 10px var(--blue-dark));
 }
 
