@@ -46,6 +46,14 @@ export function Tasks() {
        setNewTaskContent('')
     }
 
+    function deleteTask(taskToDelete: string) {
+      const tasksWhithoutDeletedOne = tasks.filter( task =>
+        {return task.id !== taskToDelete}
+      )
+
+      setTasks(tasksWhithoutDeletedOne) 
+    }
+
     function handleNewTaskChange (event: ChangeEvent<HTMLTextAreaElement>) {
       event.target.setCustomValidity('')
       setNewTaskContent(event.target.value)
@@ -92,7 +100,9 @@ export function Tasks() {
         {tasks.map((task) => {
           return <Task 
             key={task.id}
+            id={task.id}
             content={task.content}
+            deleteTask={deleteTask}
           />
         }
         )}
