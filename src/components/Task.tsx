@@ -3,15 +3,17 @@ import '../global.css'
 import styles from './Task.module.css'
 
 //Importação de bibliotecas
-import { Trash } from 'phosphor-react'
+import { Trash, Check } from 'phosphor-react'
+import check from '../assets/check.svg'
 
 interface propsType{
   id: string,
   content: string,
-  deleteTask: Function
+  deleteTask: Function,
+  isComplete: boolean
 }
 
-export function Task({id, content, deleteTask}:propsType) {
+export function Task({id, content, deleteTask, isComplete}:propsType) {
 
   function onDeleteTask () {
     deleteTask(id)
@@ -22,9 +24,9 @@ export function Task({id, content, deleteTask}:propsType) {
   return (
     <div className={styles.task}>
       <button className={styles.checkContainer}>
-        <div />
+        {isComplete ? <div className={styles.complete}><img src={check}/></div> : <div className={styles.uncomplete}></div>}
       </button>
-      <p>{content}</p>
+      <p className={isComplete ? styles.completeContent : styles.uncompleteContent}>{content}</p>
       <button 
         className={styles.deleteButton}
         onClick={onDeleteTask}

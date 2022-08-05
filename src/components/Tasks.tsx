@@ -19,18 +19,7 @@ export function Tasks() {
     const [newTaskContent, setNewTaskContent] = useState('')
 
     const [tasks, setTasks] = useState<taskType[]>
-    ([
-      // {
-      //   id: 'teste',
-      //   content: 'Ler Institutas da Fé Cristão de João Calvino',
-      //   isComplete: false
-      // },
-      // {
-      //   id: 'teste2',
-      //   content: 'Assistir Fórmula 1',
-      //   isComplete: true
-      // }
-    ])
+    ([])
 
     function handleCreateTask(event: FormEvent) {
       event.preventDefault()
@@ -103,6 +92,7 @@ export function Tasks() {
             id={task.id}
             content={task.content}
             deleteTask={deleteTask}
+            isComplete={task.isComplete}
           />
         }
         )}
