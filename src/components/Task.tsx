@@ -10,10 +10,11 @@ interface propsType{
   id: string,
   content: string,
   deleteTask: Function,
-  isComplete: boolean
+  isComplete: boolean,
+  switchState: Function,
 }
 
-export function Task({id, content, deleteTask, isComplete}:propsType) {
+export function Task({id, content, deleteTask, isComplete, switchState}:propsType) {
 
   function onDeleteTask () {
     deleteTask(id)
@@ -21,9 +22,13 @@ export function Task({id, content, deleteTask, isComplete}:propsType) {
     console.log(`Deletar ${id}`)
   }
 
+  function onSwitchState () {
+    switchState(id)
+  }
+
   return (
     <div className={styles.task}>
-      <button className={styles.checkContainer}>
+      <button className={styles.checkContainer} onClick={onSwitchState}>
         {isComplete ? <div className={styles.complete}><img src={check}/></div> : <div className={styles.uncomplete}></div>}
       </button>
       <p className={isComplete ? styles.completeContent : styles.uncompleteContent}>{content}</p>

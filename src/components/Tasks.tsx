@@ -43,6 +43,19 @@ export function Tasks() {
       setTasks(tasksWhithoutDeletedOne) 
     }
 
+    function switchState(taskToSwitch: string) {
+      const newTasks = tasks.map(task => 
+        { if (task.id === taskToSwitch) {
+           return {
+            ...task,
+            isComplete: !task.isComplete
+           }
+        }
+        return task
+      })
+      setTasks(newTasks)
+    }
+
     function handleNewTaskChange (event: ChangeEvent<HTMLTextAreaElement>) {
       event.target.setCustomValidity('')
       setNewTaskContent(event.target.value)
@@ -54,7 +67,7 @@ export function Tasks() {
       isComplete = true
     }
 
-    const completedTasksQuantity = tasks.filter(isCompleted).length
+    const completedTasksQuantity = tasks.filter((task) => task.isComplete === true).length
 
 
   return (
@@ -93,6 +106,7 @@ export function Tasks() {
             content={task.content}
             deleteTask={deleteTask}
             isComplete={task.isComplete}
+            switchState={switchState}
           />
         }
         )}
